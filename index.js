@@ -1,34 +1,22 @@
-require('jquery');
-// require('socketio');
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var port = process.env.PORT || 3000;
 
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
 
-/*=================================
-=            VARIABLES            =
-=================================*/
-var http = require('http'),
-	fs = require('fs'),
-	express = require('request'),
-	PORT = '8080', // Put your port here
-	indexFile = fs.readFileSync('index.html'),
-	socket = require('socket.io')(8082);
+app.get('/admin', function(req, res){
+  res.sendFile(__dirname + '/admin.html');
+});
 
-	http.createServer(function (req, res) {
-		res.writeHead(200, {'Content-Type': 'text/html'});
-		res.end(indexFile);
-		socket.emit('tweet', 'twwefwefeet');
-	}).listen(PORT, '127.0.0.1');
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
 
-
-	socket.on('connection',function(socket){
-		console.log('A new user connect');
-		socket.emit('update-msg', 'fewwe');
-		// This event will trigger when any user is connected.
-		// You can use 'socket' to emit and receive events.
-		socket.on('commend added',function(data){
-			// When any connected client emit this event, we will receive it here.
-			socket.emit('something happend'); // for all.
-			socket.broadcast.emit('something happend'); // for all except me.
-		});
-	});
-	
-console.log('Server running at http://127.0.0.1:'+PORT+'/');
+http.listen(port, function(){
+  console.log('listening on *:' + port);
+});

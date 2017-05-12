@@ -47146,6 +47146,15 @@ var http = __webpack_require__(17),
 
 	socket.on('connection',function(socket){
 		console.log('A new user connect');
+		socket.on('disconnect', function(){
+    		console.log('user disconnected');
+  		});
+
+
+		socket.on('chat message', function(msg){
+			console.log('message: ' + msg);
+		});
+		socket.emit('update-msg', { data: 'Hello World'});
 		// This event will trigger when any user is connected.
 		// You can use 'socket' to emit and receive events.
 		socket.on('commend added',function(data){
