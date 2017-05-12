@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Real-time Twitter Feed</title>
+    
+    <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+  </head>
+  <body>
+    <h1>Livestream</h1>
+
+    <form id="form" action="post">
+      <input type="text">
+      <button type="submit">submit</button>
+    </form>
+    
+
+    <script>
+       $(document).ready(function(){
+        $('#form').submit(function(){
+          socket.emit('message', $('#Input').val());
+    //socket.emit('message', "Input");
+    //$('#Input').val('');
+    return false;
+  });
+       });
+    </script>
+
+
+
+
+  </body>
+
+  
+</html>

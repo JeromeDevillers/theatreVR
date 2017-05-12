@@ -1,0 +1,22 @@
+{
+  "name": "theatrevr",
+  "version": "1.0.0",
+  "description": "Experiment with VR",
+  "main": "index.js",
+  "repository": "https://github.com/JeromeDevillers/theatrevr.git",
+  "author": "Devillers Jerome",
+  "license": "MIT",
+  "dependencies": {
+    "aframe": "^0.5.0",
+    "express": "^4.15.2",
+    "fs-": "^1.0.0",
+    "http": "^0.0.0",
+    "jquery": "^3.2.1",
+    "json-loader": "^0.5.4",
+    "net": "^1.0.2",
+    "require": "^2.4.20",
+    "socketio": "^1.0.0",
+    "tls": "^0.0.1",
+    "webpack": "^2.5.1"
+  }
+}
