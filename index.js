@@ -21,6 +21,7 @@ var http = require('http'),
 
 	socket.on('connection',function(socket){
 		console.log('A new user connect');
+		socket.emit('update-msg', 'fewwe');
 		// This event will trigger when any user is connected.
 		// You can use 'socket' to emit and receive events.
 		socket.on('commend added',function(data){
