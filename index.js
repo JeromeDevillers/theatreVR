@@ -3,6 +3,12 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 
+
+// Serve Custom Js
+app.get('/dist/bundle.js', function(req, res){
+  res.sendFile(__dirname + '/dist/bundle.js');
+})
+
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
@@ -18,5 +24,5 @@ io.on('connection', function(socket){
 });
 
 http.listen(port, function(){
-  console.log('listening on *:' + port);
+  console.log('listening on localhost:' + port);
 });

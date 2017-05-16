@@ -13,17 +13,40 @@
       #messages li:nth-child(odd) { background: #eee; }
       #messages { margin-bottom: 40px }
     </style>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="dist/bundle.js"></script>
+    <!-- <script src="https://rawgit.com/ngokevin/aframe-broadcast-component/master/dist/aframe-broadcast-component.min.js"></script> -->
+    <!-- browserify main.js -o ../dist/bundle.js -->
   </head>
   <body>
-    <ul id="messages"></ul>
+
+
     
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <a-scene broadcast="http://localhost:3000">
+      <a-assets>
+        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+      </a-assets>
+      <a-text sentence-text value=" " material="color: blue" position="0 2 -8" text="width: 20" align="center"></a-text>
+
+
+
+      <!-- Scene -->
+      <a-cylinder id="ground" src="#groundTexture" radius="30" height="0.1"></a-cylinder>
+      <a-sky id="background" src="#skyTexture" theta-length="90" radius="30"></a-sky>
+    </a-scene>
+
+
     <script>
       $(function () {
         var socket = io();
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
+          var test = $('a-scene').append($('a-text').text(function(){
+            this.setAttribute('value', msg);
+          }));
           window.scrollTo(0, document.body.scrollHeight);
         });
       });
