@@ -87328,22 +87328,16 @@ require('aframe');
 require('aframe-broadcast-component');
 
 AFRAME.registerComponent('sentence-text', {
-  init: function() {
+  schema: {type: 'selector'},
+
+  init: function () {
     var el = this.el;
-    this.ready = false;
-    el.addEventListener('textfontset', function() {
-      this.ready = true;
-    }.bind(this));
-  },
-  tick: function() {
-    var el = this.el;
-    if (!this.ready) {
-      return;
-    }
-    el.setAttribute('value', '20:30');
+    this.data.addEventListener('componentchanged', function (evt) {
+      if (evt.detail.name !== 'value') { return; }
+      el.setAttribute('value', evt.detail.newData);
+    });
   }
 });
-
 },{"aframe":2,"aframe-broadcast-component":1}],50:[function(require,module,exports){
 
 },{}],51:[function(require,module,exports){

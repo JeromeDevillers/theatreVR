@@ -6,6 +6,10 @@
   "repository": "https://github.com/JeromeDevillers/theatrevr.git",
   "author": "Devillers Jerome",
   "license": "MIT",
+  "scripts": {
+    "dev": "browserify src/main.js -o dist/bundle.js",
+    "start": "node index.js"
+  },
   "dependencies": {
     "aframe": "^0.5.0",
     "express": "^4.15.2",
@@ -23,6 +27,7 @@
     "aframe-broadcast-component": "^0.1.0",
     "bufferutil": "^3.0.0",
     "jsdom": "^10.1.0",
+    "node": "0.0.0",
     "utf-8-validate": "^3.0.1",
     "util": "^0.10.3",
     "xmlhttprequest": "^1.8.0"
