@@ -1,2 +1,5 @@
 # theatrevr
-Experiment with VR [ Learning VR / Not Working ]
+Experiment with VR and Websockets.
+Show realtime messages in VR Scene.
+
+[[https://github.com/JeromeDevillers/theatrevr/blob/master/capture.gif]]
