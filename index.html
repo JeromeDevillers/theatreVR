@@ -2,43 +2,32 @@
 <html>
   <head>
     <title>Devillers Jerome | TheatreVR</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-      #messages { margin-bottom: 40px }
-    </style>
+    <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="dist/bundle.js"></script>
-    <!-- <script src="https://rawgit.com/ngokevin/aframe-broadcast-component/master/dist/aframe-broadcast-component.min.js"></script> -->
-    <!-- browserify main.js -o ../dist/bundle.js -->
   </head>
   <body>
-
-
-    
+  
     <a-scene broadcast="http://localhost:3000">
+      
+      <!-- Assets -->
       <a-assets>
         <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
         <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
       </a-assets>
+      
       <a-text sentence-text value=" " material="color: blue" position="0 2 -8" text="width: 20" align="center"></a-text>
-
-
 
       <!-- Scene -->
       <a-cylinder id="ground" src="#groundTexture" radius="30" height="0.1"></a-cylinder>
       <a-sky id="background" src="#skyTexture" theta-length="90" radius="30"></a-sky>
+
     </a-scene>
 
 
+    <!-- Javascript -->
     <script>
       $(function () {
         var socket = io();
@@ -51,5 +40,6 @@
         });
       });
     </script>
+    
   </body>
 </html>
