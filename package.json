@@ -3,7 +3,12 @@
     "version": "0.0.1",
     "description": "Experiment with VR",
     "main": "index.js",
-    "keywords": ["VR", "Websocket", "AR", "Server"],
+    "keywords": [
+        "VR",
+        "Websocket",
+        "AR",
+        "Server"
+    ],
     "repository": "https://github.com/JeromeDevillers/theatrevr.git",
     "author": "Devillers Jerome",
     "license": "MIT",
@@ -12,31 +17,32 @@
         "start": "node index.js"
     },
     "dependencies": {
-        "aframe": "^0.5.0",
-        "express": "^4.15.2",
+        "aframe": "^1.2.0",
+        "express": "^4.17.2",
         "extract-text-webpack-plugin": "^2.1.0",
         "fs-": "^1.0.0",
         "http": "^0.0.0",
-        "jquery": "^3.2.1",
-        "json-loader": "^0.5.4",
+        "jquery": "^3.6.0",
+        "json-loader": "^0.5.7",
         "net": "^1.0.2",
+        "npm-check-updates": "^12.2.1",
         "require": "^2.4.20",
-        "semver": "^5.4.1",
+        "semver": "^7.3.5",
         "socketio": "^1.0.0",
         "tls": "^0.0.1",
-        "webpack": "^2.5.1",
-        "webpack-node-externals": "^1.6.0"
+        "webpack": "^5.68.0",
+        "webpack-node-externals": "^3.0.0"
     },
     "devDependencies": {
         "aframe-broadcast-component": "^0.1.0",
-        "bufferutil": "^3.0.0",
-        "jsdom": "^10.1.0",
-        "node": "0.0.0",
-        "node-sass": "^4.5.3",
-        "sass-loader": "^6.0.5",
-        "utf-8-validate": "^3.0.1",
-        "util": "^0.10.3",
-        "webpack": "^2.5.1",
+        "bufferutil": "^4.0.6",
+        "jsdom": "^19.0.0",
+        "node": "17.4.0",
+        "node-sass": "^7.0.1",
+        "sass-loader": "^12.4.0",
+        "utf-8-validate": "^5.0.8",
+        "util": "^0.12.4",
+        "webpack": "^5.68.0",
         "xmlhttprequest": "^1.8.0"
     }
 }
